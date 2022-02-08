@@ -7,33 +7,19 @@
 }
 
 body{
-    background-image: url(./images/Rectangle\ 6.svg), url(./images/Subtract.svg);
-    background-repeat: no-repeat, no-repeat;
-    background-position: right center,  left bottom;
+    background-image: url(./images/Rectangle\ 6.svg);
+    background-repeat: no-repeat;
+    background-position: right center;
     width: 100%;
     height: 100%;
     z-index: 0;
 }
 
-
-body::before {
-    content: '';
-    position: fixed;
-    width: 250px;
-    height: 250px;
-    transform: rotate(45deg);
-    bottom: -150px;
-    left: -150px;
-    background-color: #FF7804;
-    z-index: 0;
-}
-
-
-
 .container{
     position: relative;
     font-family: 'Noto sans'; 
     min-height: 100vh;
+    max-width: 1920px; 
     padding: 0% 0% 0 2%;
     z-index: 1;
 }
@@ -43,12 +29,12 @@ body::before {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* padding: 10px 0; */
-    /* padding: 0 0; */
+    padding: 10px 0;
 }
 
 .Hero nav ul{
     list-style: none;
+    /* margin-left: 100px; */
 }
 
 .Hero nav ul li{
@@ -118,7 +104,7 @@ body::before {
 .intro .Hero-image {
     width: 50%;
     max-width: 100%;
-    align-self: end;
+    align-self: center;
     padding-block-start: 9rem;  
     padding-inline-end: 7%;
 }
@@ -138,7 +124,6 @@ body::before {
     font-size: 38px;
     line-height: 52px;
     color: #000000;
-    /* margin-top: 60px; */
     margin-top: 96px;
     
 }
@@ -150,7 +135,6 @@ body::before {
     color: #777777;
     margin-top: 50px;
 }
-
 
 .Entry > button {
     background: #1D5DC0;
@@ -220,7 +204,7 @@ section .features{
 }
 
 section h1{
-    font-family: Noto Sans;
+    font-family: 'Noto Sans';
     font-style: normal;
     font-weight: 600;
     font-size: 25px;
@@ -238,13 +222,13 @@ section h1{
 }
 .features {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    grid-gap: 5em;
-    grid-auto-rows: minmax(200px, auto);
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 1em;
+    padding: 50px 0px;
     
 }
 
- .features > div {
+.features > div {
     width: 280px;
 } 
      
@@ -263,7 +247,6 @@ section h1{
     line-height: 33px;
     color: #1D5DC0;
     margin-top: 10px;
-    /* text-align: center; */
 }
 
 .features p{
@@ -276,43 +259,121 @@ section h1{
     margin-top: 20px;
 }
 
-footer{
-    position: relative;
-    font-family: 'Gadugi' 'Noto sans';
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 27px;
-    color: #777777;
-    text-align: center;
-    margin-top: 150px;
-    height: 50px;
+footer {
+	position: relative;
+	line-height: 27px;
+	text-align: center;
+	margin-top: 100px;
+}
+footer p {
+	z-index: 10;
+	color: #777777;
+	font-style: normal;
+	font-weight: normal;
+	font-family: 'Gadugi';
+	font-size: 16px;
+	padding-bottom: 1rem;
 }
 
-@media screen and (min-width: 1100px) {
-    body::after {
-        right: -20%;
-    }
+
+.triangle {
+	width: 300px;
+	height: 300px;
+	background-color: #ff7804;
+	position: absolute;
+	bottom: 0;
+	left: -150px;
+	clip-path: polygon(0 0, 100% 100%, 0 100%); 
+	z-index: -1;
 }
 
-@media screen and (max-width: 765px) {
-    body::after {
-        display: none;
-    }
+/* ON SMALL SCREENS */
 
-    nav ul {
-        display: none;
-    }
-
-    .Hero  nav > button {
-        display: block;
-    }
-
-    .intro {
-        flex-direction: column-reverse;
-    }
-
-    .intro .Hero-image {
-        align-self: flex-start;
-    }
+/* ipad pro screens */
+@media (min-width: 990px) and (max-width: 1062px) {
 }
+
+/* ipad and landscape screens */
+@media (min-width: 768px) and (max-width: 988px) {
+	.features {
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: 1rem;
+	}
+
+	.content1 #button1 {
+		width: 100px;
+		margin-top: 25px;
+	}
+	.content1 #button2 {
+		width: 100px;
+		margin: 75px 0 0 30px;
+		display: inline;
+	}
+	.dot_wrapper {
+		margin-bottom: 35px;
+	}
+}
+
+/* mobile phones */
+@media (max-width: 767px) {
+	.content1 h1 {
+		font-size: 30px;
+		line-height: 1.2;
+	}
+	.content1 p {
+		margin-top: 30px;
+	}
+	.content1 #button1 {
+		width: 100px;
+		margin-top: 25px;
+	}
+	.content1 #button2 {
+		width: 100px;
+		margin: 75px 0 0 30px;
+	}
+	.dot1 {
+		margin: 40px 0 0 0;
+	}
+	.dot_wrapper {
+		margin-bottom: 35px;
+	}
+	.features {
+		grid-template-columns: repeat(1, 1fr);
+		grid-gap: 0;
+	}
+	.features > div {
+		width: 100%;
+		text-align: center;
+		margin-bottom: 2rem;
+	}
+	.features img {
+		padding-left: 0;
+		width: 80px;
+		height: 80px;
+	}
+	.features .picx {
+		width: 80px;
+		height: 80px;
+	}
+	body {
+		background-image: none;
+	}
+
+	.Hero nav ul {
+		display: none;
+	}
+
+	.Hero nav > button {
+		display: block;
+	}
+
+	.intro {
+		flex-direction: column-reverse;
+	}
+
+	.intro .Hero-image {
+		align-self: flex-start;
+        width: 100%;
+	}
+}
+
